@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --mem=128G
+#SBATCH --account=fengj
+#SBATCH --partition=lonepeak
+#SBATCH -o slurm-%j.out-%N 
+#SBATCH --job-name=alice_bert
+
+module load python/3.10.3
+
+echo "python running"
+python bert matcher.py
+
+echo "End of program at `date`"
